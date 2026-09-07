@@ -4,50 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RoomReady</title>
-  <style>
-    body { font-family: sans-serif; margin: 2rem; }
-    .room { border: 1px solid #ccc; padding: 1rem; margin: 1rem 0; }
-    label { display: inline-block; margin-right: 1rem; }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>RoomReady</h1>
-  <p>Pick a room and book it.</p>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="{{ url_for('index') }}">Room<em>Ready</em></a>
+    </div>
+  </header>
 
-  <form method="get" action="/">
-    <label>Check-in
-      <input type="date" name="check_in" value="{{ check_in }}">
-    </label>
-    <label>Check-out
-      <input type="date" name="check_out" value="{{ check_out }}">
-    </label>
-    <button type="submit">Check availability</button>
-  </form>
+  <main class="container">
+    <h1>Book a room</h1>
+    <p>Pick your dates to see the rooms that are free, then book one.</p>
 
-  {% if check_in %}
-    <p>Rooms free from {{ check_in }} to {{ check_out }}:</p>
-  {% endif %}
-
-  {% for room in rooms %}
-  <div class="room">
-    <h2>{{ room.name }}</h2>
-    <p>&pound;{{ "%.2f"|format(room.price) }} per night</p>
-    <p>{{ room.description }}</p>
-
-    <form class="book-form" data-room-id="{{ room.id }}">
-      <label>Name
-        <input type="text" name="guest_name" required>
-      </label>
-      <label>Check-in
-        <input type="date" name="check_in" required>
-      </label>
-      <label>Check-out
-        <input type="date" name="check_out" required>
-      </label>
-      <button type="submit">Book this room</button>
+    <form method="get" action="/" class="card">
+      <div class="form-row">
+        <div class="field">
+          <label class="field-label" for="search-check-in">Check-in</label>
+          <input type="date" id="search-check-in" name="check_in" value="{{ check_in }}">
+        </div>
+        <div class="field">
+          <label class="field-label" for="search-check-out">Check-out</label>
+          <input type="date" id="search-check-out" name="check_out" value="{{ check_out }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Check availability</button>
+      </div>
     </form>
-  </div>
-  {% endfor %}
+
+    {% if check_in %}
+      <p class="note">Rooms free from {{ check_in }} to {{ check_out }}:</p>
+    {% endif %}
+
+    {% for room in rooms %}
+    <div class="card room-card">
+      <div class="room-top">
+        <h2>{{ room.name }}</h2>
+        <span class="price">&pound;{{ "%.2f"|format(room.price) }} <span>per night</span></span>
+      </div>
+      <p class="description">{{ room.description }}</p>
+
+      <form class="book-form" data-room-id="{{ room.id }}">
+        <div class="form-row">
+          <div class="field">
+            <label class="field-label" for="guest-{{ room.id }}">Name</label>
+            <input type="text" id="guest-{{ room.id }}" name="guest_name" required>
+          </div>
+          <div class="field">
+            <label class="field-label" for="check-in-{{ room.id }}">Check-in</label>
+            <input type="date" id="check-in-{{ room.id }}" name="check_in" required>
+          </div>
+          <div class="field">
+            <label class="field-label" for="check-out-{{ room.id }}">Check-out</label>
+            <input type="date" id="check-out-{{ room.id }}" name="check_out" required>
+          </div>
+          <button type="submit" class="btn btn-success">Book this room</button>
+        </div>
+      </form>
+    </div>
+    {% endfor %}
+  </main>
 
   <script>
     const forms = document.querySelectorAll('.book-form');

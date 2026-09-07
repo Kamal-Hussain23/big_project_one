@@ -4,20 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Booking confirmed — RoomReady</title>
-  <style>
-    body { font-family: sans-serif; margin: 2rem; }
-    .box { border: 1px solid #2a9d3f; padding: 1rem; max-width: 30rem; }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Booking confirmed</h1>
-  <div class="box">
-    <p><strong>Room:</strong> {{ booking.room_name }}</p>
-    <p><strong>Guest:</strong> {{ booking.guest_name }}</p>
-    <p><strong>Check-in:</strong> {{ booking.check_in }}</p>
-    <p><strong>Check-out:</strong> {{ booking.check_out }}</p>
-    <p><strong>Booking #:</strong> {{ booking.id }}</p>
-  </div>
-  <p><a href="{{ url_for('index') }}">Back to rooms</a></p>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="{{ url_for('index') }}">Room<em>Ready</em></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Booking confirmed</h1>
+
+    <div class="success-box">
+      <p class="tick">&#10003;</p>
+      <dl class="details">
+        <div class="details-row">
+          <dt>Room</dt>
+          <dd>{{ booking.room_name }}</dd>
+        </div>
+        <div class="details-row">
+          <dt>Guest</dt>
+          <dd>{{ booking.guest_name }}</dd>
+        </div>
+        <div class="details-row">
+          <dt>Check-in</dt>
+          <dd>{{ booking.check_in }}</dd>
+        </div>
+        <div class="details-row">
+          <dt>Check-out</dt>
+          <dd>{{ booking.check_out }}</dd>
+        </div>
+        <div class="details-row">
+          <dt>Booking #</dt>
+          <dd>{{ booking.id }}</dd>
+        </div>
+      </dl>
+    </div>
+
+    <p><a class="btn btn-link" href="{{ url_for('index') }}">Back to rooms</a></p>
+  </main>
 </body>
 </html>

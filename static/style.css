@@ -1,0 +1,273 @@
+:root {
+  --brand: #1f6f8b;
+  --brand-dark: #14535c;
+  --text: #2b3440;
+  --muted: #6b7280;
+  --bg: #f3f6f8;
+  --card: #ffffff;
+  --border: #dde3e8;
+  --accent: #1f8b6e;
+  --accent-dark: #166b55;
+  --danger: #b3413b;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(20, 40, 60, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+/* Header */
+.site-header {
+  background: var(--brand);
+  color: #fff;
+  padding: 1rem 0;
+  box-shadow: var(--shadow);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.brand em {
+  font-style: normal;
+  color: #bfe3ee;
+}
+
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.room-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.room-card .room-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.room-card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--brand-dark);
+}
+
+.price {
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--brand-dark);
+}
+
+.price span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.description {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Forms */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: flex-end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.field label,
+label.field-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+input[type="text"],
+input[type="date"] {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: #fff;
+}
+
+input:focus {
+  outline: 2px solid #bfe3ee;
+  border-color: var(--brand);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--brand-dark);
+}
+
+.btn-success {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-success:hover {
+  background: var(--accent-dark);
+}
+
+.btn-link {
+  background: none;
+  color: var(--brand);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-link:hover {
+  color: var(--brand-dark);
+  text-decoration: underline;
+}
+
+/* Availability note */
+.note {
+  color: var(--brand-dark);
+  font-weight: 500;
+}
+
+/* Confirmation page */
+.success-box {
+  background: #f0faf5;
+  border: 1px solid #b7e3cf;
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  max-width: 30rem;
+}
+
+.success-box p {
+  margin: 0.4rem 0;
+}
+
+.success-box .tick {
+  color: var(--accent);
+  font-size: 1.6rem;
+}
+
+dl.details {
+  margin: 0;
+}
+
+.details-row {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.details-row dt {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.details-row dd {
+  margin: 0;
+}
+
+/* Bookings table */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.7rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+thead th {
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+tbody tr:nth-child(even) {
+  background: #f7fafb;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.placeholder {
+  color: var(--muted);
+  padding: 1rem 0;
+}

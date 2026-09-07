@@ -1,25 +1,19 @@
 # Plan — My Bookings View
 
-TDD note: this is a Red/Green repo. Write a failing test first, watch it fail,
-then write the minimal code to make it pass.
+Spec note: this is a spec-driven repo. Each task group comes from the
+requirements in `requirements.md`; finish each group in order.
 
 ## Task group 1 — Database: getting all bookings
 
-- [ ] Write failing tests for `db.get_bookings`:
-      - returns each booking joined with its room name;
-      - returns them in booking order.
-- [ ] Implement `get_bookings` in `db.py` and make tests pass (green).
+- [ ] Implement `db.get_bookings(conn)` so it returns each booking joined with
+      its room name, in booking order.
 
 ## Task group 2 — The /bookings page
 
-- [ ] Write a failing test: `GET /bookings` lists each booking's guest, room,
-      and dates.
 - [ ] Add the `/bookings` route in `app.py`.
 - [ ] Add `templates/bookings.html`.
-- [ ] Make tests pass (green).
 
 ## Task group 3 — Final checks
 
-- [ ] Run the full test suite; all green.
 - [ ] Run `ruff check`; no errors.
 - [ ] Verify the server responds and `/bookings` works locally.

@@ -21,5 +21,5 @@ Once the core booking works, keep it small and solid. Possible gentle additions
 (only if they don't bloat the app): showing room details on a single page,
 marking rooms as unavailable once booked, and a basic list of bookings.
 
-The guiding rule: grow only with small, tested steps on top of the walking
-skeleton, never jumping ahead.
+The guiding rule: grow only with small, spec-approved steps on top of the
+walking skeleton, never jumping ahead.

@@ -22,8 +22,6 @@ The app uses only the simple tools the students already know:
 
 ## Engineering standards
 
-- **Red/Green TDD.** Write a failing test first, watch it fail (red), then
-  write the minimal code to make it pass (green), and clean up as needed.
 - **Strict typing.** Use types where the language supports them and don't give
   up safety for convenience.
 - **Contracts over custom logic.** Use clear, defined data shapes instead of

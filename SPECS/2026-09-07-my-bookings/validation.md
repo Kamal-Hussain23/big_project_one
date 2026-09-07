@@ -9,7 +9,6 @@
 
 ## Verification steps
 
-- [ ] Test suite all green.
 - [ ] `ruff check` clean.
 - [ ] Locally: create a booking, `curl /bookings`, confirm it appears.
 - [ ] Public Codio URL responds.

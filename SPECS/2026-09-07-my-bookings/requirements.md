@@ -27,5 +27,6 @@ Roadmap item 5: a simple view showing the bookings that have been made.
 
 ## Standards
 
-- Follows the constitution and earlier feature specs: TDD (tests before code),
-  logging kept separate, simple and obvious solutions.
+- Follows the constitution and earlier feature specs: spec-driven development
+  (code traces back to this spec), logging kept separate, simple and obvious
+  solutions.

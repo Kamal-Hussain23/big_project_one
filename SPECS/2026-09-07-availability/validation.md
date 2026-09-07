@@ -11,7 +11,6 @@
 
 ## Verification steps
 
-- [ ] Test suite all green.
 - [ ] `ruff check` clean.
 - [ ] Locally: create a booking, then `curl "/?check_in=...&check_out=..."` and
       confirm the booked room is hidden and the others shown.

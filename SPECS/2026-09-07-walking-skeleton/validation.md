@@ -9,11 +9,10 @@
   table.
 - After booking, the user sees a confirmation showing the saved booking
   (room, guest name, dates).
-- All tests pass (Red/Green TDD followed throughout).
+- The implementation matches this spec (spec-driven development).
 
 ## Verification steps
 
-- [ ] Run the test suite; all tests green.
 - [ ] Run lint (if configured); no errors.
 - [ ] Start the server and verify `/` responds locally via `curl` to
       `http://localhost:3000/`.

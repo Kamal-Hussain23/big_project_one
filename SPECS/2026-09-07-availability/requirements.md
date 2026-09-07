@@ -42,5 +42,6 @@ AND requested.check_in < existing.check_out
 
 ## Standards
 
-- Follows the constitution and the walking-skeleton feature spec: TDD
-  (tests before code), logging kept separate, simple and obvious solutions.
+- Follows the constitution and the walking-skeleton feature spec: spec-driven
+  development (code traces back to this spec), logging kept separate, simple
+  and obvious solutions.

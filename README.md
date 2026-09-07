@@ -40,8 +40,9 @@ calls, no fuss.
 - **Backend:** Python with Flask.
 - **Database:** SQLite using Python's built-in `sqlite3` module. No ORM, no
   extra libraries.
-- **Testing:** pytest. **Linting:** ruff.
-- **Process:** Red/Green TDD — tests are written before the feature code.
+- **Linting:** ruff.
+- **Process:** spec-driven development — every feature starts from a written
+  spec (requirements/plan/validation) and the code follows it.
 
 ## Database design
 
@@ -85,10 +86,9 @@ overlap when each one starts before the other ends.
 3. Open the public URL:
    `https://${CODIO_HOSTNAME}-3000.codio.io/`
 
-## Run the tests
+## Run the lint check
 
 ```
-python -m pytest
 python -m ruff check .
 ```
 
@@ -105,19 +105,20 @@ working app:
 - **The walking skeleton.** Instead of trying to build everything at once, we
   built the thinnest working slice first (a server that shows rooms and can
   book one), then grew features on top. Nothing sat around half-built.
-- **Red/Green TDD.** Writing a failing test first, watching it fail, and then
-  making it pass felt backward at first, but it meant every feature had a
-  test proving it worked — and refactoring felt safe.
+- **Spec-driven development.** Every feature started from a written spec —
+  requirements, a plan, and a validation checklist — before any code. The
+  spec told us exactly what to build and what "done" meant, and the code
+  traced back to it.
 - **The weird SQLite threading bug.** The biggest surprise was a 500 error:
   SQLite connections created in one thread can only be used in that same
   thread. Flask serves each request on a different thread, so one shared
   connection broke. The fix was to open a connection per request using
-  Flask's `g`. This taught me that "it works in my quick test" is not the
+  Flask's `g`. This taught me that "it works in my quick check" is not the
   same as "it works when the server really runs."
 - **Coming up with the availability rule was the hardest part.** Finding free
   rooms looked easy, but getting the date-overlap logic right — and deciding
   that check-out day is free for the next guest — took careful thought and a
-  few edge-case tests. Simple-looking features can hide tricky logic.
+  few edge cases. Simple-looking features can hide tricky logic.
 - **Saying no.** Writing explicit "non-goals" (no payments, no login, no
   export) kept the app small and finished. It's just as important to decide
   what you are *not* building.
